@@ -8,8 +8,8 @@ export let STORAGE_RPICE: DatedPrice = {
     {
       amount: 26,
       divideBy: 10 * 1024 * 1024 * 1024,
-      startDateMs: 0,
-      endDateMs: Number.MAX_SAFE_INTEGER,
+      startMonthMs: 0,
+      endMonthMs: Number.MAX_SAFE_INTEGER,
     },
   ],
 };
@@ -21,8 +21,8 @@ export let UPLOAD_PRICE: DatedPrice = {
     {
       amount: 2,
       divideBy: 1024 * 1024 * 1024,
-      startDateMs: 0,
-      endDateMs: Number.MAX_SAFE_INTEGER,
+      startMonthMs: 0,
+      endMonthMs: Number.MAX_SAFE_INTEGER,
     },
   ],
 };
@@ -34,8 +34,8 @@ export let NETWORK_RPICE: DatedPrice = {
     {
       amount: 12,
       divideBy: 1024 * 1024 * 1024,
-      startDateMs: 0,
-      endDateMs: Number.MAX_SAFE_INTEGER,
+      startMonthMs: 0,
+      endMonthMs: Number.MAX_SAFE_INTEGER,
     },
   ],
 };
@@ -47,8 +47,8 @@ export let SHOW_PRICE: DatedPrice = {
     {
       amount: 10,
       divideBy: 3600,
-      startDateMs: 0,
-      endDateMs: Number.MAX_SAFE_INTEGER,
+      startMonthMs: 0,
+      endMonthMs: Number.MAX_SAFE_INTEGER,
     },
   ],
 };
@@ -60,8 +60,8 @@ export let PLATFORM_CUT_SHOW_PRICE: DatedPrice = {
     {
       amount: 2,
       divideBy: 3600,
-      startDateMs: 0,
-      endDateMs: Number.MAX_SAFE_INTEGER,
+      startMonthMs: 0,
+      endMonthMs: Number.MAX_SAFE_INTEGER,
     },
   ],
 };

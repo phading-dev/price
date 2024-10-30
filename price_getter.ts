@@ -2,12 +2,12 @@ import { DatedPrice, Price } from "./price";
 
 export function getPriceFromTimeMs(
   datedPrice: DatedPrice,
-  dateTimeMs: number,
+  timeMs: number,
 ): Price {
   for (let datedAmount of datedPrice.datedAmounts) {
     if (
-      datedAmount.startDateMs <= dateTimeMs &&
-      dateTimeMs <= datedAmount.endDateMs
+      datedAmount.startMonthMs <= timeMs &&
+      timeMs <= datedAmount.endMonthMs
     ) {
       return {
         productType: datedPrice.productType,
@@ -17,12 +17,12 @@ export function getPriceFromTimeMs(
       };
     }
   }
-  throw new Error(`${dateTimeMs} doesn't match any configured price.`);
+  throw new Error(`${timeMs} doesn't match any configured price.`);
 }
 
-export function getPriceFromDate(
+export function getPriceFromMonth(
   datedPrice: DatedPrice,
-  dateISOString: string,
+  monthISOString: string,
 ): Price {
-  return getPriceFromTimeMs(datedPrice, new Date(dateISOString).valueOf());
+  return getPriceFromTimeMs(datedPrice, new Date(monthISOString).valueOf());
 }

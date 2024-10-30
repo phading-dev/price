@@ -31,8 +31,8 @@ export let PRODUCT_TYPE: EnumDescriptor<ProductType> = {
 export interface DatedAmount {
   amount?: number,
   divideBy?: number,
-  startDateMs?: number,
-  endDateMs?: number,
+  startMonthMs?: number,
+  endMonthMs?: number,
 }
 
 export let DATED_AMOUNT: MessageDescriptor<DatedAmount> = {
@@ -46,11 +46,11 @@ export let DATED_AMOUNT: MessageDescriptor<DatedAmount> = {
     index: 2,
     primitiveType: PrimitiveType.NUMBER,
   }, {
-    name: 'startDateMs',
+    name: 'startMonthMs',
     index: 3,
     primitiveType: PrimitiveType.NUMBER,
   }, {
-    name: 'endDateMs',
+    name: 'endMonthMs',
     index: 4,
     primitiveType: PrimitiveType.NUMBER,
   }],

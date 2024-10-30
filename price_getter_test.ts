@@ -1,6 +1,6 @@
 import { PRICE, ProductType } from "./price";
 import { SHOW_PRICE } from "./price_config";
-import { getPriceFromDate } from "./price_getter";
+import { getPriceFromMonth } from "./price_getter";
 import { eqMessage } from "@selfage/message/test_matcher";
 import { assertThat } from "@selfage/test_matcher";
 import { TEST_RUNNER } from "@selfage/test_runner";
@@ -11,7 +11,7 @@ TEST_RUNNER.run({
     {
       name: "Default",
       execute: () => {
-        let price = getPriceFromDate(SHOW_PRICE, "2024-10-30");
+        let price = getPriceFromMonth(SHOW_PRICE, "2024-10");
         assertThat(
           price,
           eqMessage(
