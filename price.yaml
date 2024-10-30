@@ -1,0 +1,56 @@
+- enum:
+    name: ProductType
+    values:
+      - name: STORAGE
+        value: 1
+      - name: UPLAOD
+        value: 2
+      - name: NETWORK
+        value: 3
+      - name: SHOW
+        value: 4
+      - name: PLATFORM_CUT_SHOW
+        value: 5
+- message:
+    name: DatedAmount
+    fields:
+      - name: amount # An integer in the smallest currency units. E.g. cents in USD.
+        type: number
+        index: 1
+      - name: divideBy # Divide the amout by this number for the amount per unit. E.g. $1 divided by 3600 secs.
+        type: number
+        index: 2
+      - name: startDateMs # UTC timestamp of a date at 00:00 AM. Inclusive.
+        type: number
+        index: 3
+      - name: endDateMs # UTC timestamp of a date at 00:00 AM. Inclusive.
+        type: number
+        index: 4
+- message:
+    name: DatedPrice
+    fields:
+      - name: productType
+        type: ProductType
+        index: 1
+      - name: currency # ISO 4217
+        type: string
+        index: 2
+      - name: datedAmounts
+        type: DatedAmount
+        isArray: true
+        index: 3
+- message:
+    name: Price
+    fields:
+      - name: productType
+        type: ProductType
+        index: 1
+      - name: currency # ISO 4217
+        type: string
+        index: 2
+      - name: amount # An integer in the smallest currency units. E.g. cents in USD.
+        type: number
+        index: 3
+      - name: divideBy # Divide the amout by this number for the amount per unit. E.g. $1 divided by 3600 secs.
+        type: number
+        index: 4
