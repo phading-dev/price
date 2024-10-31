@@ -1,6 +1,6 @@
 {
   "name": "@phading/price",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Price config.",
   "repository": {
     "type": "git",
@@ -12,6 +12,8 @@
     "url": "https://github.com/phading-dev/price/issues"
   },
   "homepage": "https://github.com/phading-dev/price#readme",
+  "main": "./price.js",
+  "types": "./price.d.ts",
   "files": [
     "**/*.d.ts",
     "**/*.js",
