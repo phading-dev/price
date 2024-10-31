@@ -1,6 +1,6 @@
 import { DatedPrice, Price } from "./price";
 
-export function getPriceFromTimeMs(
+export function resolvePriceOfTimeMs(
   datedPrice: DatedPrice,
   timeMs: number,
 ): Price {
@@ -11,8 +11,7 @@ export function getPriceFromTimeMs(
     ) {
       return {
         productType: datedPrice.productType,
-        currency: datedPrice.currency,
-        amount: datedAmount.amount,
+        money: datedAmount.money,
         divideBy: datedAmount.divideBy,
       };
     }
@@ -20,9 +19,9 @@ export function getPriceFromTimeMs(
   throw new Error(`${timeMs} doesn't match any configured price.`);
 }
 
-export function getPriceFromMonth(
+export function resolvePriceOfMonth(
   datedPrice: DatedPrice,
   monthISOString: string,
 ): Price {
-  return getPriceFromTimeMs(datedPrice, new Date(monthISOString).valueOf());
+  return resolvePriceOfTimeMs(datedPrice, new Date(monthISOString).valueOf());
 }

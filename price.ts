@@ -1,4 +1,5 @@
 import { EnumDescriptor, PrimitiveType, MessageDescriptor } from '@selfage/message/descriptor';
+import { Money, MONEY } from './money';
 
 export enum ProductType {
   STORAGE = 1,
@@ -29,7 +30,7 @@ export let PRODUCT_TYPE: EnumDescriptor<ProductType> = {
 }
 
 export interface DatedAmount {
-  amount?: number,
+  money?: Money,
   divideBy?: number,
   startMonthMs?: number,
   endMonthMs?: number,
@@ -38,9 +39,9 @@ export interface DatedAmount {
 export let DATED_AMOUNT: MessageDescriptor<DatedAmount> = {
   name: 'DatedAmount',
   fields: [{
-    name: 'amount',
+    name: 'money',
     index: 1,
-    primitiveType: PrimitiveType.NUMBER,
+    messageType: MONEY,
   }, {
     name: 'divideBy',
     index: 2,
@@ -58,7 +59,6 @@ export let DATED_AMOUNT: MessageDescriptor<DatedAmount> = {
 
 export interface DatedPrice {
   productType?: ProductType,
-  currency?: string,
   datedAmounts?: Array<DatedAmount>,
 }
 
@@ -69,12 +69,8 @@ export let DATED_PRICE: MessageDescriptor<DatedPrice> = {
     index: 1,
     enumType: PRODUCT_TYPE,
   }, {
-    name: 'currency',
-    index: 2,
-    primitiveType: PrimitiveType.STRING,
-  }, {
     name: 'datedAmounts',
-    index: 3,
+    index: 2,
     messageType: DATED_AMOUNT,
     isArray: true,
   }],
@@ -82,8 +78,7 @@ export let DATED_PRICE: MessageDescriptor<DatedPrice> = {
 
 export interface Price {
   productType?: ProductType,
-  currency?: string,
-  amount?: number,
+  money?: Money,
   divideBy?: number,
 }
 
@@ -94,16 +89,12 @@ export let PRICE: MessageDescriptor<Price> = {
     index: 1,
     enumType: PRODUCT_TYPE,
   }, {
-    name: 'currency',
+    name: 'money',
     index: 2,
-    primitiveType: PrimitiveType.STRING,
-  }, {
-    name: 'amount',
-    index: 3,
-    primitiveType: PrimitiveType.NUMBER,
+    messageType: MONEY,
   }, {
     name: 'divideBy',
-    index: 4,
+    index: 3,
     primitiveType: PrimitiveType.NUMBER,
   }],
 };

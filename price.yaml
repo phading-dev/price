@@ -14,8 +14,9 @@
 - message:
     name: DatedAmount
     fields:
-      - name: amount # An integer in the smallest currency units. E.g. cents in USD.
-        type: number
+      - name: money
+        type: Money
+        import: ./money
         index: 1
       - name: divideBy # Divide the amout by this number for the amount per unit. E.g. $1 divided by 3600 secs.
         type: number
@@ -32,25 +33,20 @@
       - name: productType
         type: ProductType
         index: 1
-      - name: currency # ISO 4217
-        type: string
-        index: 2
       - name: datedAmounts
         type: DatedAmount
         isArray: true
-        index: 3
+        index: 2
 - message:
     name: Price
     fields:
       - name: productType
         type: ProductType
         index: 1
-      - name: currency # ISO 4217
-        type: string
+      - name: money
+        type: Money
+        import: ./money
         index: 2
-      - name: amount # An integer in the smallest currency units. E.g. cents in USD.
-        type: number
-        index: 3
       - name: divideBy # Divide the amout by this number for the amount per unit. E.g. $1 divided by 3600 secs.
         type: number
-        index: 4
+        index: 3
