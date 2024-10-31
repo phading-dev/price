@@ -22,10 +22,10 @@
         type: number
         index: 2
       - name: startMonth # ISO string of month regardless of timezone. Inclusive.
-        type: number
+        type: string
         index: 3
       - name: endMonth # ISO string of month regardless of timezone. Inclusive.
-        type: number
+        type: string
         index: 4
 - message:
     name: DatedPrice
