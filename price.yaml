@@ -21,10 +21,10 @@
       - name: divideBy # Divide the amout by this number for the amount per unit. E.g. $1 divided by 3600 secs.
         type: number
         index: 2
-      - name: startMonthMs # UTC timestamp of the 1st day of a month at 00:00 AM. Inclusive.
+      - name: startMonth # ISO string of month regardless of timezone. Inclusive.
         type: number
         index: 3
-      - name: endMonthMs # UTC timestamp of the 1st day of a month at 00:00 AM. Inclusive.
+      - name: endMonth # ISO string of month regardless of timezone. Inclusive.
         type: number
         index: 4
 - message:
