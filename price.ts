@@ -31,7 +31,7 @@ export let PRODUCT_TYPE: EnumDescriptor<ProductType> = {
 
 export interface DatedAmount {
   money?: Money,
-  divideBy?: number,
+  description?: string,
   startMonth?: string,
   endMonth?: string,
 }
@@ -43,9 +43,9 @@ export let DATED_AMOUNT: MessageDescriptor<DatedAmount> = {
     index: 1,
     messageType: MONEY,
   }, {
-    name: 'divideBy',
+    name: 'description',
     index: 2,
-    primitiveType: PrimitiveType.NUMBER,
+    primitiveType: PrimitiveType.STRING,
   }, {
     name: 'startMonth',
     index: 3,
@@ -79,7 +79,7 @@ export let DATED_PRICE: MessageDescriptor<DatedPrice> = {
 export interface Price {
   productType?: ProductType,
   money?: Money,
-  divideBy?: number,
+  description?: string,
 }
 
 export let PRICE: MessageDescriptor<Price> = {
@@ -93,8 +93,8 @@ export let PRICE: MessageDescriptor<Price> = {
     index: 2,
     messageType: MONEY,
   }, {
-    name: 'divideBy',
+    name: 'description',
     index: 3,
-    primitiveType: PrimitiveType.NUMBER,
+    primitiveType: PrimitiveType.STRING,
   }],
 };

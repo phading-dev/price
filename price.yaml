@@ -18,8 +18,8 @@
         type: Money
         import: ./money
         index: 1
-      - name: divideBy # Divide the amout by this number for the amount per unit. E.g. $1 divided by 3600 secs.
-        type: number
+      - name: description # What's for and what's the unit.
+        type: string
         index: 2
       - name: startMonth # ISO string of month regardless of timezone. Inclusive.
         type: string
@@ -47,6 +47,6 @@
         type: Money
         import: ./money
         index: 2
-      - name: divideBy # Divide the amout by this number for the amount per unit. E.g. $1 divided by 3600 secs.
-        type: number
+      - name: description # What's for and what's the unit.
+        type: string
         index: 3
