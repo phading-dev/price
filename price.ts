@@ -30,6 +30,8 @@ export let PRODUCT_TYPE: EnumDescriptor<ProductType> = {
 
 export interface PriceInMonth {
   amount?: number,
+  divideBy?: number,
+  unit?: string,
   startMonth?: string,
   endMonth?: string,
 }
@@ -41,12 +43,20 @@ export let PRICE_IN_MONTH: MessageDescriptor<PriceInMonth> = {
     index: 1,
     primitiveType: PrimitiveType.NUMBER,
   }, {
-    name: 'startMonth',
+    name: 'divideBy',
     index: 2,
+    primitiveType: PrimitiveType.NUMBER,
+  }, {
+    name: 'unit',
+    index: 3,
+    primitiveType: PrimitiveType.STRING,
+  }, {
+    name: 'startMonth',
+    index: 4,
     primitiveType: PrimitiveType.STRING,
   }, {
     name: 'endMonth',
-    index: 3,
+    index: 5,
     primitiveType: PrimitiveType.STRING,
   }],
 };
@@ -70,14 +80,14 @@ export let PRICE_IN_CURRENCY: MessageDescriptor<PriceInCurrency> = {
   }],
 };
 
-export interface PriceConfig {
+export interface PriceOfProduct {
   productType?: ProductType,
   description?: string,
   pricesInCurrency?: Array<PriceInCurrency>,
 }
 
-export let PRICE_CONFIG: MessageDescriptor<PriceConfig> = {
-  name: 'PriceConfig',
+export let PRICE_OF_PRODUCT: MessageDescriptor<PriceOfProduct> = {
+  name: 'PriceOfProduct',
   fields: [{
     name: 'productType',
     index: 1,
@@ -90,6 +100,20 @@ export let PRICE_CONFIG: MessageDescriptor<PriceConfig> = {
     name: 'pricesInCurrency',
     index: 3,
     messageType: PRICE_IN_CURRENCY,
+    isArray: true,
+  }],
+};
+
+export interface PriceConfig {
+  pricesOfProduct?: Array<PriceOfProduct>,
+}
+
+export let PRICE_CONFIG: MessageDescriptor<PriceConfig> = {
+  name: 'PriceConfig',
+  fields: [{
+    name: 'pricesOfProduct',
+    index: 1,
+    messageType: PRICE_OF_PRODUCT,
     isArray: true,
   }],
 };

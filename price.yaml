@@ -17,12 +17,18 @@
       - name: amount
         type: number
         index: 1
-      - name: startMonth # ISO string of month regardless of timezone. Inclusive.
-        type: string
+      - name: divideBy # quantity / ${divideBy} * ${amount} = total amount
+        type: number
         index: 2
-      - name: endMonth # ISO string of month regardless of timezone. Inclusive.
+      - name: unit # The unit for quantity / ${divideBy}
         type: string
         index: 3
+      - name: startMonth # ISO string of month regardless of timezone. Inclusive.
+        type: string
+        index: 4
+      - name: endMonth # ISO string of month regardless of timezone. Inclusive.
+        type: string
+        index: 5
 - message:
     name: PriceInCurrency
     fields:
@@ -34,7 +40,7 @@
         isArray: true
         index: 2
 - message:
-    name: PriceConfig
+    name: PriceOfProduct
     fields:
       - name: productType
         type: ProductType
@@ -46,6 +52,13 @@
         type: PriceInCurrency
         isArray: true
         index: 3
+- message:
+    name: PriceConfig
+    fields:
+      - name: pricesOfProduct
+        type: PriceOfProduct
+        isArray: true
+        index: 1
 - message:
     name: Price
     fields:
