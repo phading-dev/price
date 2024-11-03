@@ -123,6 +123,8 @@ export interface Price {
   description?: string,
   currency?: string,
   amount?: number,
+  divideBy?: number,
+  unit?: string,
 }
 
 export let PRICE: MessageDescriptor<Price> = {
@@ -143,5 +145,13 @@ export let PRICE: MessageDescriptor<Price> = {
     name: 'amount',
     index: 4,
     primitiveType: PrimitiveType.NUMBER,
+  }, {
+    name: 'divideBy',
+    index: 5,
+    primitiveType: PrimitiveType.NUMBER,
+  }, {
+    name: 'unit',
+    index: 6,
+    primitiveType: PrimitiveType.STRING,
   }],
 };

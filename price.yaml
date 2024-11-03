@@ -74,3 +74,9 @@
       - name: amount
         type: number
         index: 4
+      - name: divideBy # quantity / ${divideBy} * ${amount} = total amount
+        type: number
+        index: 5
+      - name: unit # The unit for quantity / ${divideBy}
+        type: string
+        index: 6
