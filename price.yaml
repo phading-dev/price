@@ -12,41 +12,52 @@
       - name: PLATFORM_CUT_SHOW
         value: 5
 - message:
-    name: DatedAmount
+    name: PriceInMonth
     fields:
-      - name: money
-        type: Money
-        import: ./money
+      - name: amount
+        type: number
         index: 1
-      - name: description # What's for and what's the unit.
-        type: string
-        index: 2
       - name: startMonth # ISO string of month regardless of timezone. Inclusive.
         type: string
-        index: 3
+        index: 2
       - name: endMonth # ISO string of month regardless of timezone. Inclusive.
         type: string
-        index: 4
+        index: 3
 - message:
-    name: DatedPrice
+    name: PriceInCurrency
+    fields:
+      - name: currency # ISO 4217
+        type: string
+        index: 1
+      - name: pricesInMonth
+        type: PriceInMonth
+        isArray: true
+        index: 2
+- message:
+    name: PriceConfig
     fields:
       - name: productType
         type: ProductType
         index: 1
-      - name: datedAmounts
-        type: DatedAmount
-        isArray: true
+      - name: description # What's for and what's the unit.
+        type: string
         index: 2
+      - name: pricesInCurrency
+        type: PriceInCurrency
+        isArray: true
+        index: 3
 - message:
     name: Price
     fields:
       - name: productType
         type: ProductType
         index: 1
-      - name: money
-        type: Money
-        import: ./money
-        index: 2
       - name: description # What's for and what's the unit.
         type: string
+        index: 2
+      - name: currency
+        type: string
         index: 3
+      - name: amount
+        type: number
+        index: 4

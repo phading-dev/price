@@ -1,5 +1,4 @@
 import { EnumDescriptor, PrimitiveType, MessageDescriptor } from '@selfage/message/descriptor';
-import { Money, MONEY } from './money';
 
 export enum ProductType {
   STORAGE = 1,
@@ -29,57 +28,77 @@ export let PRODUCT_TYPE: EnumDescriptor<ProductType> = {
   }]
 }
 
-export interface DatedAmount {
-  money?: Money,
-  description?: string,
+export interface PriceInMonth {
+  amount?: number,
   startMonth?: string,
   endMonth?: string,
 }
 
-export let DATED_AMOUNT: MessageDescriptor<DatedAmount> = {
-  name: 'DatedAmount',
+export let PRICE_IN_MONTH: MessageDescriptor<PriceInMonth> = {
+  name: 'PriceInMonth',
   fields: [{
-    name: 'money',
+    name: 'amount',
     index: 1,
-    messageType: MONEY,
+    primitiveType: PrimitiveType.NUMBER,
   }, {
-    name: 'description',
+    name: 'startMonth',
     index: 2,
     primitiveType: PrimitiveType.STRING,
   }, {
-    name: 'startMonth',
-    index: 3,
-    primitiveType: PrimitiveType.STRING,
-  }, {
     name: 'endMonth',
-    index: 4,
+    index: 3,
     primitiveType: PrimitiveType.STRING,
   }],
 };
 
-export interface DatedPrice {
-  productType?: ProductType,
-  datedAmounts?: Array<DatedAmount>,
+export interface PriceInCurrency {
+  currency?: string,
+  pricesInMonth?: Array<PriceInMonth>,
 }
 
-export let DATED_PRICE: MessageDescriptor<DatedPrice> = {
-  name: 'DatedPrice',
+export let PRICE_IN_CURRENCY: MessageDescriptor<PriceInCurrency> = {
+  name: 'PriceInCurrency',
+  fields: [{
+    name: 'currency',
+    index: 1,
+    primitiveType: PrimitiveType.STRING,
+  }, {
+    name: 'pricesInMonth',
+    index: 2,
+    messageType: PRICE_IN_MONTH,
+    isArray: true,
+  }],
+};
+
+export interface PriceConfig {
+  productType?: ProductType,
+  description?: string,
+  pricesInCurrency?: Array<PriceInCurrency>,
+}
+
+export let PRICE_CONFIG: MessageDescriptor<PriceConfig> = {
+  name: 'PriceConfig',
   fields: [{
     name: 'productType',
     index: 1,
     enumType: PRODUCT_TYPE,
   }, {
-    name: 'datedAmounts',
+    name: 'description',
     index: 2,
-    messageType: DATED_AMOUNT,
+    primitiveType: PrimitiveType.STRING,
+  }, {
+    name: 'pricesInCurrency',
+    index: 3,
+    messageType: PRICE_IN_CURRENCY,
     isArray: true,
   }],
 };
 
 export interface Price {
   productType?: ProductType,
-  money?: Money,
   description?: string,
+  currency?: string,
+  amount?: number,
 }
 
 export let PRICE: MessageDescriptor<Price> = {
@@ -89,12 +108,16 @@ export let PRICE: MessageDescriptor<Price> = {
     index: 1,
     enumType: PRODUCT_TYPE,
   }, {
-    name: 'money',
-    index: 2,
-    messageType: MONEY,
-  }, {
     name: 'description',
+    index: 2,
+    primitiveType: PrimitiveType.STRING,
+  }, {
+    name: 'currency',
     index: 3,
     primitiveType: PrimitiveType.STRING,
+  }, {
+    name: 'amount',
+    index: 4,
+    primitiveType: PrimitiveType.NUMBER,
   }],
 };
