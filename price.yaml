@@ -1,82 +1,82 @@
-- enum:
-    name: ProductType
-    values:
-      - name: STORAGE
-        value: 1
-      - name: UPLAOD
-        value: 2
-      - name: NETWORK
-        value: 3
-      - name: SHOW
-        value: 4
-      - name: PLATFORM_CUT_SHOW
-        value: 5
-- message:
-    name: PriceInMonth
-    fields:
-      - name: amount
-        type: number
-        index: 1
-      - name: divideBy # quantity / ${divideBy} * ${amount} = total amount
-        type: number
-        index: 2
-      - name: unit # The unit for quantity / ${divideBy}
-        type: string
-        index: 3
-      - name: startMonth # ISO string of month regardless of timezone. Inclusive.
-        type: string
-        index: 4
-      - name: endMonth # ISO string of month regardless of timezone. Inclusive.
-        type: string
-        index: 5
-- message:
-    name: PriceInCurrency
-    fields:
-      - name: currency # ISO 4217
-        type: string
-        index: 1
-      - name: pricesInMonth
-        type: PriceInMonth
-        isArray: true
-        index: 2
-- message:
-    name: PriceOfProduct
-    fields:
-      - name: productType
-        type: ProductType
-        index: 1
-      - name: description # What's for and what's the unit.
-        type: string
-        index: 2
-      - name: pricesInCurrency
-        type: PriceInCurrency
-        isArray: true
-        index: 3
-- message:
-    name: PriceConfig
-    fields:
-      - name: pricesOfProduct
-        type: PriceOfProduct
-        isArray: true
-        index: 1
-- message:
-    name: Price
-    fields:
-      - name: productType
-        type: ProductType
-        index: 1
-      - name: description # What's for and what's the unit.
-        type: string
-        index: 2
-      - name: currency
-        type: string
-        index: 3
-      - name: amount
-        type: number
-        index: 4
-      - name: divideBy # quantity / ${divideBy} * ${amount} = total amount
-        type: number
-        index: 5
-      - name: unit # The unit for quantity / ${divideBy}
-        type: string
-        index: 6
+- kind: Enum
+  name: ProductType
+  values:
+    - name: STORAGE
+      value: 1
+    - name: UPLAOD
+      value: 2
+    - name: NETWORK
+      value: 3
+    - name: SHOW
+      value: 4
+    - name: PLATFORM_CUT_SHOW
+      value: 5
+- kind: Message
+  name: PriceInMonth
+  fields:
+    - name: amount
+      type: number
+      index: 1
+    - name: divideBy
+      type: number
+      index: 2
+    - name: unit
+      type: string
+      index: 3
+    - name: startMonth
+      type: string
+      index: 4
+    - name: endMonth
+      type: string
+      index: 5
+- kind: Message
+  name: PriceInCurrency
+  fields:
+    - name: currency
+      type: string
+      index: 1
+    - name: pricesInMonth
+      type: PriceInMonth
+      isArray: true
+      index: 2
+- kind: Message
+  name: PriceOfProduct
+  fields:
+    - name: productType
+      type: ProductType
+      index: 1
+    - name: description
+      type: string
+      index: 2
+    - name: pricesInCurrency
+      type: PriceInCurrency
+      isArray: true
+      index: 3
+- kind: Message
+  name: PriceConfig
+  fields:
+    - name: pricesOfProduct
+      type: PriceOfProduct
+      isArray: true
+      index: 1
+- kind: Message
+  name: Price
+  fields:
+    - name: productType
+      type: ProductType
+      index: 1
+    - name: description
+      type: string
+      index: 2
+    - name: currency
+      type: string
+      index: 3
+    - name: amount
+      type: number
+      index: 4
+    - name: divideBy
+      type: number
+      index: 5
+    - name: unit
+      type: string
+      index: 6
