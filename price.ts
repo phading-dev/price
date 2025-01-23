@@ -5,7 +5,7 @@ export enum ProductType {
   UPLAOD = 2,
   NETWORK = 3,
   SHOW = 4,
-  PLATFORM_CUT_SHOW = 5,
+  SHOW_PAYOUT = 5,
 }
 
 export let PRODUCT_TYPE: EnumDescriptor<ProductType> = {
@@ -23,14 +23,31 @@ export let PRODUCT_TYPE: EnumDescriptor<ProductType> = {
     name: 'SHOW',
     value: 4,
   }, {
-    name: 'PLATFORM_CUT_SHOW',
+    name: 'SHOW_PAYOUT',
     value: 5,
+  }]
+}
+
+export enum RoundingType {
+  CEIL = 1,
+  FLOOR = 2,
+}
+
+export let ROUNDING_TYPE: EnumDescriptor<RoundingType> = {
+  name: 'RoundingType',
+  values: [{
+    name: 'CEIL',
+    value: 1,
+  }, {
+    name: 'FLOOR',
+    value: 2,
   }]
 }
 
 export interface PriceInMonth {
   amount?: number,
   divideBy?: number,
+  rounding?: RoundingType,
   unit?: string,
   startMonth?: string,
   endMonth?: string,
@@ -47,16 +64,20 @@ export let PRICE_IN_MONTH: MessageDescriptor<PriceInMonth> = {
     index: 2,
     primitiveType: PrimitiveType.NUMBER,
   }, {
-    name: 'unit',
+    name: 'rounding',
     index: 3,
-    primitiveType: PrimitiveType.STRING,
+    enumType: ROUNDING_TYPE,
   }, {
-    name: 'startMonth',
+    name: 'unit',
     index: 4,
     primitiveType: PrimitiveType.STRING,
   }, {
-    name: 'endMonth',
+    name: 'startMonth',
     index: 5,
+    primitiveType: PrimitiveType.STRING,
+  }, {
+    name: 'endMonth',
+    index: 6,
     primitiveType: PrimitiveType.STRING,
   }],
 };
