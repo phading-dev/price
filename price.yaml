@@ -87,6 +87,9 @@
     - name: divideBy
       type: number
       index: 5
+    - name: rounding
+      type: RoundingType
+      index: 6
     - name: unit
       type: string
-      index: 6
+      index: 7
