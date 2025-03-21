@@ -1,6 +1,6 @@
 import { EnumDescriptor, PrimitiveType, MessageDescriptor } from '@selfage/message/descriptor';
 
-export enum ProductType {
+export enum ProductID {
   STORAGE = 1,
   UPLAOD = 2,
   NETWORK = 3,
@@ -8,8 +8,8 @@ export enum ProductType {
   SHOW_PAYOUT = 5,
 }
 
-export let PRODUCT_TYPE: EnumDescriptor<ProductType> = {
-  name: 'ProductType',
+export let PRODUCT_I_D: EnumDescriptor<ProductID> = {
+  name: 'ProductID',
   values: [{
     name: 'STORAGE',
     value: 1,
@@ -102,7 +102,7 @@ export let PRICE_IN_CURRENCY: MessageDescriptor<PriceInCurrency> = {
 };
 
 export interface PriceOfProduct {
-  productType?: ProductType,
+  productID?: ProductID,
   description?: string,
   pricesInCurrency?: Array<PriceInCurrency>,
 }
@@ -110,9 +110,9 @@ export interface PriceOfProduct {
 export let PRICE_OF_PRODUCT: MessageDescriptor<PriceOfProduct> = {
   name: 'PriceOfProduct',
   fields: [{
-    name: 'productType',
+    name: 'productID',
     index: 1,
-    enumType: PRODUCT_TYPE,
+    enumType: PRODUCT_I_D,
   }, {
     name: 'description',
     index: 2,
@@ -140,7 +140,7 @@ export let PRICE_CONFIG: MessageDescriptor<PriceConfig> = {
 };
 
 export interface Price {
-  productType?: ProductType,
+  productID?: ProductID,
   description?: string,
   currency?: string,
   amount?: number,
@@ -152,9 +152,9 @@ export interface Price {
 export let PRICE: MessageDescriptor<Price> = {
   name: 'Price',
   fields: [{
-    name: 'productType',
+    name: 'productID',
     index: 1,
-    enumType: PRODUCT_TYPE,
+    enumType: PRODUCT_I_D,
   }, {
     name: 'description',
     index: 2,

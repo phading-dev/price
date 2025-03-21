@@ -1,6 +1,7 @@
 - kind: Enum
-  name: ProductType
+  name: ProductID
   values:
+    # Never deletes or changes the value of the enum. It serves as the permanent identifier of a product.
     - name: STORAGE
       value: 1
     - name: UPLAOD
@@ -52,8 +53,8 @@
 - kind: Message
   name: PriceOfProduct
   fields:
-    - name: productType
-      type: ProductType
+    - name: productID
+      type: ProductID
       index: 1
     - name: description
       type: string
@@ -72,8 +73,8 @@
 - kind: Message
   name: Price
   fields:
-    - name: productType
-      type: ProductType
+    - name: productID
+      type: ProductID
       index: 1
     - name: description
       type: string
