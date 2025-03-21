@@ -6,7 +6,7 @@ export enum ProductID {
   UPLAOD = 2,
   NETWORK = 3,
   SHOW = 4,
-  SHOW_PAYOUT = 5,
+  SHOW_CREDIT = 5,
 }
 
 export let PRODUCT_I_D: EnumDescriptor<ProductID> = {
@@ -24,7 +24,7 @@ export let PRODUCT_I_D: EnumDescriptor<ProductID> = {
     name: 'SHOW',
     value: 4,
   }, {
-    name: 'SHOW_PAYOUT',
+    name: 'SHOW_CREDIT',
     value: 5,
   }]
 }

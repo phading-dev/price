@@ -10,7 +10,7 @@
       value: 3
     - name: SHOW
       value: 4
-    - name: SHOW_PAYOUT
+    - name: SHOW_CREDIT
       value: 5
 - kind: Enum
   name: RoundingType
