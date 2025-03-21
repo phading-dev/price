@@ -1,4 +1,5 @@
 import { EnumDescriptor, PrimitiveType, MessageDescriptor } from '@selfage/message/descriptor';
+import { AmountType, AMOUNT_TYPE } from './amount_type';
 
 export enum ProductID {
   STORAGE = 1,
@@ -103,6 +104,7 @@ export let PRICE_IN_CURRENCY: MessageDescriptor<PriceInCurrency> = {
 
 export interface PriceOfProduct {
   productID?: ProductID,
+  amountType?: AmountType,
   description?: string,
   pricesInCurrency?: Array<PriceInCurrency>,
 }
@@ -114,12 +116,16 @@ export let PRICE_OF_PRODUCT: MessageDescriptor<PriceOfProduct> = {
     index: 1,
     enumType: PRODUCT_I_D,
   }, {
-    name: 'description',
+    name: 'amountType',
     index: 2,
+    enumType: AMOUNT_TYPE,
+  }, {
+    name: 'description',
+    index: 3,
     primitiveType: PrimitiveType.STRING,
   }, {
     name: 'pricesInCurrency',
-    index: 3,
+    index: 4,
     messageType: PRICE_IN_CURRENCY,
     isArray: true,
   }],
@@ -144,6 +150,7 @@ export interface Price {
   description?: string,
   currency?: string,
   amount?: number,
+  amountType?: AmountType,
   divideBy?: number,
   rounding?: RoundingType,
   unit?: string,
@@ -168,16 +175,20 @@ export let PRICE: MessageDescriptor<Price> = {
     index: 4,
     primitiveType: PrimitiveType.NUMBER,
   }, {
-    name: 'divideBy',
+    name: 'amountType',
     index: 5,
+    enumType: AMOUNT_TYPE,
+  }, {
+    name: 'divideBy',
+    index: 6,
     primitiveType: PrimitiveType.NUMBER,
   }, {
     name: 'rounding',
-    index: 6,
+    index: 7,
     enumType: ROUNDING_TYPE,
   }, {
     name: 'unit',
-    index: 7,
+    index: 8,
     primitiveType: PrimitiveType.STRING,
   }],
 };
