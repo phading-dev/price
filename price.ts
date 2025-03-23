@@ -3,7 +3,7 @@ import { AmountType, AMOUNT_TYPE } from './amount_type';
 
 export enum ProductID {
   STORAGE = 1,
-  UPLAOD = 2,
+  UPLOAD = 2,
   NETWORK = 3,
   SHOW = 4,
   SHOW_CREDIT = 5,
@@ -15,7 +15,7 @@ export let PRODUCT_I_D: EnumDescriptor<ProductID> = {
     name: 'STORAGE',
     value: 1,
   }, {
-    name: 'UPLAOD',
+    name: 'UPLOAD',
     value: 2,
   }, {
     name: 'NETWORK',

@@ -4,7 +4,7 @@
     # Never deletes or changes the value of the enum. It serves as the permanent identifier of a product.
     - name: STORAGE
       value: 1
-    - name: UPLAOD
+    - name: UPLOAD
       value: 2
     - name: NETWORK
       value: 3
