@@ -22,7 +22,7 @@
 - kind: Message
   name: PriceInMonth
   fields:
-    - name: amount
+    - name: centAmount
       type: number
       index: 1
     - name: divideBy
@@ -86,19 +86,22 @@
     - name: currency
       type: string
       index: 3
-    - name: amount
+    - name: centAmount
       type: number
       index: 4
+    - name: dollarAmount
+      type: number
+      index: 5
     - name: amountType
       type: AmountType
       import: ./amount_type
-      index: 5
+      index: 6
     - name: divideBy
       type: number
-      index: 6
+      index: 7
     - name: rounding
       type: RoundingType
-      index: 7
+      index: 8
     - name: unit
       type: string
-      index: 8
+      index: 9
