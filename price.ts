@@ -46,7 +46,7 @@ export let ROUNDING_TYPE: EnumDescriptor<RoundingType> = {
 }
 
 export interface PriceInMonth {
-  centAmount?: number,
+  amount?: number,
   divideBy?: number,
   rounding?: RoundingType,
   unit?: string,
@@ -57,7 +57,7 @@ export interface PriceInMonth {
 export let PRICE_IN_MONTH: MessageDescriptor<PriceInMonth> = {
   name: 'PriceInMonth',
   fields: [{
-    name: 'centAmount',
+    name: 'amount',
     index: 1,
     primitiveType: PrimitiveType.NUMBER,
   }, {
@@ -149,8 +149,7 @@ export interface Price {
   productID?: ProductID,
   description?: string,
   currency?: string,
-  centAmount?: number,
-  dollarAmount?: number,
+  amount?: number,
   amountType?: AmountType,
   divideBy?: number,
   rounding?: RoundingType,
@@ -172,12 +171,8 @@ export let PRICE: MessageDescriptor<Price> = {
     index: 3,
     primitiveType: PrimitiveType.STRING,
   }, {
-    name: 'centAmount',
+    name: 'amount',
     index: 4,
-    primitiveType: PrimitiveType.NUMBER,
-  }, {
-    name: 'dollarAmount',
-    index: 5,
     primitiveType: PrimitiveType.NUMBER,
   }, {
     name: 'amountType',
