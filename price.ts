@@ -154,7 +154,6 @@ export interface Price {
   divideBy?: number,
   rounding?: RoundingType,
   unit?: string,
-  displayUnit?: string,
 }
 
 export let PRICE: MessageDescriptor<Price> = {
@@ -190,10 +189,6 @@ export let PRICE: MessageDescriptor<Price> = {
   }, {
     name: 'unit',
     index: 9,
-    primitiveType: PrimitiveType.STRING,
-  }, {
-    name: 'displayUnit',
-    index: 10,
     primitiveType: PrimitiveType.STRING,
   }],
 };
