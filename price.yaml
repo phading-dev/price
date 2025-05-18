@@ -99,6 +99,9 @@
     - name: rounding
       type: RoundingType
       index: 8
-    - name: unit
+    - name: unit # quantity's unit
       type: string
       index: 9
+    - name: displayUnit # = unit x divideBy
+      type: string
+      index: 10
