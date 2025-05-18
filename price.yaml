@@ -28,18 +28,12 @@
     - name: divideBy
       type: number
       index: 2
-    - name: rounding
-      type: RoundingType
-      index: 3
-    - name: unit # quantity's unit
-      type: string
-      index: 4
     - name: startMonth
       type: string
-      index: 5
+      index: 3
     - name: endMonth
       type: string
-      index: 6
+      index: 4
 - kind: Message
   name: PriceInCurrency
   fields:
@@ -63,10 +57,16 @@
     - name: description
       type: string
       index: 3
+    - name: unit # quantity's unit
+      type: string
+      index: 4
+    - name: rounding
+      type: RoundingType
+      index: 5
     - name: pricesInCurrency
       type: PriceInCurrency
       isArray: true
-      index: 4
+      index: 6
 - kind: Message
   name: PriceConfig
   fields:
@@ -86,19 +86,19 @@
     - name: currency
       type: string
       index: 3
-    - name: amount
-      type: number
-      index: 4
     - name: amountType
       type: AmountType
       import: ./amount_type
-      index: 6
+      index: 4
+    - name: amount
+      type: number
+      index: 5
     - name: divideBy
       type: number
-      index: 7
+      index: 6
     - name: rounding
       type: RoundingType
-      index: 8
+      index: 7
     - name: unit # quantity's unit
       type: string
-      index: 9
+      index: 8

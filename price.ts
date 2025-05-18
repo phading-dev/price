@@ -48,8 +48,6 @@ export let ROUNDING_TYPE: EnumDescriptor<RoundingType> = {
 export interface PriceInMonth {
   amount?: number,
   divideBy?: number,
-  rounding?: RoundingType,
-  unit?: string,
   startMonth?: string,
   endMonth?: string,
 }
@@ -65,20 +63,12 @@ export let PRICE_IN_MONTH: MessageDescriptor<PriceInMonth> = {
     index: 2,
     primitiveType: PrimitiveType.NUMBER,
   }, {
-    name: 'rounding',
-    index: 3,
-    enumType: ROUNDING_TYPE,
-  }, {
-    name: 'unit',
-    index: 4,
-    primitiveType: PrimitiveType.STRING,
-  }, {
     name: 'startMonth',
-    index: 5,
+    index: 3,
     primitiveType: PrimitiveType.STRING,
   }, {
     name: 'endMonth',
-    index: 6,
+    index: 4,
     primitiveType: PrimitiveType.STRING,
   }],
 };
@@ -106,6 +96,8 @@ export interface PriceOfProduct {
   productID?: ProductID,
   amountType?: AmountType,
   description?: string,
+  unit?: string,
+  rounding?: RoundingType,
   pricesInCurrency?: Array<PriceInCurrency>,
 }
 
@@ -124,8 +116,16 @@ export let PRICE_OF_PRODUCT: MessageDescriptor<PriceOfProduct> = {
     index: 3,
     primitiveType: PrimitiveType.STRING,
   }, {
-    name: 'pricesInCurrency',
+    name: 'unit',
     index: 4,
+    primitiveType: PrimitiveType.STRING,
+  }, {
+    name: 'rounding',
+    index: 5,
+    enumType: ROUNDING_TYPE,
+  }, {
+    name: 'pricesInCurrency',
+    index: 6,
     messageType: PRICE_IN_CURRENCY,
     isArray: true,
   }],
@@ -149,8 +149,8 @@ export interface Price {
   productID?: ProductID,
   description?: string,
   currency?: string,
-  amount?: number,
   amountType?: AmountType,
+  amount?: number,
   divideBy?: number,
   rounding?: RoundingType,
   unit?: string,
@@ -171,24 +171,24 @@ export let PRICE: MessageDescriptor<Price> = {
     index: 3,
     primitiveType: PrimitiveType.STRING,
   }, {
-    name: 'amount',
-    index: 4,
-    primitiveType: PrimitiveType.NUMBER,
-  }, {
     name: 'amountType',
-    index: 6,
+    index: 4,
     enumType: AMOUNT_TYPE,
   }, {
+    name: 'amount',
+    index: 5,
+    primitiveType: PrimitiveType.NUMBER,
+  }, {
     name: 'divideBy',
-    index: 7,
+    index: 6,
     primitiveType: PrimitiveType.NUMBER,
   }, {
     name: 'rounding',
-    index: 8,
+    index: 7,
     enumType: ROUNDING_TYPE,
   }, {
     name: 'unit',
-    index: 9,
+    index: 8,
     primitiveType: PrimitiveType.STRING,
   }],
 };
