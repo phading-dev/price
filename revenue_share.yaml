@@ -3,12 +3,14 @@
   values:
     - name: MISC
       value: 1
-    - name: SUBSCRIPTION
+    - name: TIP
       value: 2
-    - name: VIDEO_RENTAL
+    - name: SUBSCRIPTION
       value: 3
-    - name: VIDEO_METERING
+    - name: VIDEO_RENTAL
       value: 4
+    - name: VIDEO_METERING
+      value: 5
 - kind: Enum
   name: AccountGroup
   values:

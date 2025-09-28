@@ -2,9 +2,10 @@ import { EnumDescriptor, MessageDescriptor, PrimitiveType } from '@selfage/messa
 
 export enum ProductType {
   MISC = 1,
-  SUBSCRIPTION = 2,
-  VIDEO_RENTAL = 3,
-  VIDEO_METERING = 4,
+  TIP = 2,
+  SUBSCRIPTION = 3,
+  VIDEO_RENTAL = 4,
+  VIDEO_METERING = 5,
 }
 
 export let PRODUCT_TYPE: EnumDescriptor<ProductType> = {
@@ -13,14 +14,17 @@ export let PRODUCT_TYPE: EnumDescriptor<ProductType> = {
     name: 'MISC',
     value: 1,
   }, {
-    name: 'SUBSCRIPTION',
+    name: 'TIP',
     value: 2,
   }, {
-    name: 'VIDEO_RENTAL',
+    name: 'SUBSCRIPTION',
     value: 3,
   }, {
-    name: 'VIDEO_METERING',
+    name: 'VIDEO_RENTAL',
     value: 4,
+  }, {
+    name: 'VIDEO_METERING',
+    value: 5,
   }]
 }
 
