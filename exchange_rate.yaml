@@ -1,0 +1,30 @@
+# Exchange COIN with other currencies
+- kind: Message
+  name: ExchangeRate
+  fields:
+    - name: currency # e.g. USD, EUR
+      type: string
+      index: 1
+    - name: description
+      type: string
+      index: 2
+    - name: startMonth # e.g. 2023-01
+      type: string
+      index: 3
+    - name: endMonth # e.g. 2023-12
+      type: string
+      index: 4
+    # ${quantity} COIN = ${amount} USD
+    - name: amount
+      type: number
+      index: 5
+    - name: quantity
+      type: number
+      index: 6
+- kind: Message
+  name: ExchangeRates
+  fields:
+    - name: rates
+      type: ExchangeRate
+      isArray: true
+      index: 1

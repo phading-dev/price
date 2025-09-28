@@ -1,7 +1,0 @@
-- kind: Enum
-  name: AmountType
-  values:
-    - name: DEBIT
-      value: 1
-    - name: CREDIT
-      value: 2

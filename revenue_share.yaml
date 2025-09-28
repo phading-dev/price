@@ -1,0 +1,49 @@
+- kind: Enum
+  name: ProductType
+  values:
+    - name: MISC
+      value: 1
+    - name: SUBSCRIPTION
+      value: 2
+    - name: VIDEO_RENTAL
+      value: 3
+    - name: VIDEO_METERING
+      value: 4
+- kind: Enum
+  name: AccountGroup
+  values:
+    - name: NORMAL
+      value: 1
+    - name: FOUNDER
+      value: 2
+- kind: Message
+  name: RevenueShareInMonth
+  fields:
+- kind: Message
+  name: RevenueShare
+  fields:
+    - name: productType
+      type: ProductType
+      index: 1
+    - name: accountGroup
+      type: AccountGroup
+      index: 2
+    - name: description
+      type: string
+      index: 3
+    - name: startMonth # e.g. 2023-01
+      type: string
+      index: 4
+    - name: endMonth # e.g. 2023-12
+      type: string
+      index: 5
+    - name: sharePercent # 0 to 1000, 1000 means 100%
+      type: number
+      index: 6
+- kind: Message
+  name: RevenueShares
+  fields:
+    - name: shares
+      type: RevenueShare
+      isArray: true
+      index: 1
