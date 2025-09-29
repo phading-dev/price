@@ -26,7 +26,7 @@ export function resolveExchangeRate(
   );
 }
 
-export function calculateMoney(
+export function calculateExchangedAmount(
   coins: number,
   targetCurrency: string,
   monthISOString: string,
